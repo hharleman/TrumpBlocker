@@ -1,6 +1,6 @@
 // extension/popup.js - Production-ready version with no exposed API keys
 
-const API_BASE_URL = 'https://your-domain.com/api'; // Your deployed website API
+const API_BASE_URL = 'http://localhost:3000/api'; // Your deployed website API
 
 // No API keys in extension code - all sensitive operations go through your backend
 
