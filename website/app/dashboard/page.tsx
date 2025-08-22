@@ -2,12 +2,12 @@
 import { currentUser } from '@clerk/nextjs'
 import { redirect } from 'next/navigation'
 import { UserButton } from '@clerk/nextjs'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { Switch } from '@/components/ui/switch'
-import { Label } from '@/components/ui/label'
-import { Textarea } from '@/components/ui/textarea'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card'
+import { Button } from '@/app/components/ui/button'
+import { Badge } from '@/app/components/ui/badge'
+import { Switch } from '@/app/components/ui/switch'
+import { Label } from '@/app/components/ui/label'
+import { Textarea } from '@/app/components/ui/textarea'
 import { Chrome, Shield, Zap, Users, Settings, Download } from 'lucide-react'
 
 export default async function DashboardPage() {

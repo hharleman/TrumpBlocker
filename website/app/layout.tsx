@@ -2,9 +2,19 @@
 import { ClerkProvider } from '@clerk/nextjs'
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Recursive, Gabarito } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const recursive = Recursive({ 
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+  variable: '--font-recursive'
+})
+
+const gabarito = Gabarito({ 
+  subsets: ['latin'],
+  weight: ['400', '600'],
+  variable: '--font-gabarito'
+})
 
 export const metadata: Metadata = {
   title: 'Trump Blocker - Clean Up Your Internet Experience',
@@ -19,7 +29,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={inter.className}>
+        <body className={`${recursive.variable} ${gabarito.variable} font-sans`}>
           {children}
         </body>
       </html>
