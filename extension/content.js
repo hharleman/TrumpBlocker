@@ -11,20 +11,21 @@
             'jd vance', 'j.d. vance', 'vance', 'vice president vance'
         ],
         rightwing: [
-            'conservative', 'republican', 'gop', 'right wing', 'rightwing',
-            'tea party', 'proud boys', 'qanon', 'alt-right'
-        ],
-        redpill: [
-            'red pill', 'redpill', 'manosphere', 'mgtow', 'incel',
-            'alpha male', 'beta male', 'sigma male'
-        ],
-        foxnews: [
-            'fox news', 'foxnews', 'tucker carlson', 'sean hannity',
+            'charlie kirk', 'ben shapiro', 'candice owens', 'tucker carlson', 'sean hannity',  
             'laura ingraham', 'jesse watters'
         ],
+        redpill: [
+            'fresh & fit', 'fresh and fit', 'andrew tate', 'tristan tate', 'pearl davis', 
+            'justpearlythings', 'kevin samuels'
+        ],
+        foxnews: [
+            'fox news', 'foxnews'
+        ],
         redpillcontent: [
-            'feminism bad', 'traditional values', 'western civilization',
-            'cultural marxism', 'woke agenda', 'cancel culture'
+            'awalt', 'all women are like that', 'alpha male', 'beta male', 'smv', 'sex market value', 
+            'conservative', 'republican', 'gop', 'right wing', 'rightwing', 'tea party', 'proud boys', 
+            'qanon', 'alt-right', 'manosphere', 'mgtow', 'incel', 'alpha male', 'beta male', 'sigma male', 
+            'cultural marxism', 'woke agenda'
         ]
     };
 
