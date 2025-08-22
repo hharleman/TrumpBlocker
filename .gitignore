@@ -1,0 +1,16 @@
+# Dependencies
+website/node_modules/
+website/.next/
+website/.env.local
+
+# IDE
+.vs/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*

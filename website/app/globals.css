@@ -56,15 +56,20 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-gabarito), sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-recursive), sans-serif;
+    font-weight: 700;
   }
 }
 
 .gradient-bg {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #F8F3E5;
 }
 
 .card-gradient {
-  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
