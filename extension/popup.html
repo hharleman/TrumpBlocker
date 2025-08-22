@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trump Blocker</title>
+    <link rel="stylesheet" href="styles/popup.css">
+</head>
+<body>
+    <div class="popup-container">
+        <header class="popup-header">
+            <div class="logo">
+                <span class="emoji">🚫</span>
+                <h1>Trump Blocker</h1>
+            </div>
+        </header>
+
+        <main class="popup-main">
+            <!-- Status Section -->
+            <div id="statusSection" class="status free">
+                <div class="status-indicator"></div>
+                <span id="statusText">Free Version Active</span>
+            </div>
+
+            <!-- Categories Section -->
+            <div class="categories-section">
+                <h2>Block Categories</h2>
+                <div class="category-list">
+                    <div class="category-item">
+                        <label>Trump Content</label>
+                        <div class="toggle-switch active" data-category="trump"></div>
+                    </div>
+                    <div class="category-item">
+                        <label>Vance Content</label>
+                        <div class="toggle-switch active" data-category="vance"></div>
+                    </div>
+                    <div class="category-item">
+                        <label>Right Wing Content</label>
+                        <div class="toggle-switch active" data-category="rightwing"></div>
+                    </div>
+                    <div class="category-item">
+                        <label>Red Pill Content</label>
+                        <div class="toggle-switch active" data-category="redpill"></div>
+                    </div>
+                    <div class="category-item">
+                        <label>Fox News</label>
+                        <div class="toggle-switch active" data-category="foxnews"></div>
+                    </div>
+                    <div class="category-item">
+                        <label>Red Pill Ideology</label>
+                        <div class="toggle-switch active" data-category="redpillcontent"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom Keywords Section (Premium Only) -->
+            <div id="customKeywordsSection" class="custom-keywords-section" style="display: none;">
+                <h2>Custom Keywords</h2>
+                <textarea id="customKeywords" placeholder="Enter custom keywords separated by commas..."></textarea>
+                <div id="keywordCount" class="keyword-count">0/20 keywords</div>
+            </div>
+
+            <!-- Auth Section -->
+            <div id="authSection" class="auth-section">
+                <button id="signInBtn" class="btn btn-outline">Sign In</button>
+            </div>
+
+            <!-- Premium Section -->
+            <div id="premiumSection" class="premium-section">
+                <div class="premium-card">
+                    <h3>🌟 Upgrade to Premium</h3>
+                    <ul class="feature-list">
+                        <li>Up to 20 custom keywords</li>
+                        <li>2FA parental controls</li>
+                        <li>Multiple device management</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <div class="price">$2/month</div>
+                    <button id="upgradeBtn" class="btn btn-premium">Upgrade Now</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="popup-footer">
+            <div class="privacy-note">
+                Your privacy matters. All filtering happens locally.
+            </div>
+        </footer>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
