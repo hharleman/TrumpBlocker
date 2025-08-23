@@ -5,9 +5,8 @@ A Chrome extension that blocks unwanted political content across the web, with a
 ## Features
 
 - 🚫 Block content from 6 predefined categories
-- 🌟 Premium: Add up to 20 custom keywords
+- 🌟 Premium: Add up to 100 custom keywords
 - 🔒 Premium: 2FA parental controls
-- 🔄 Premium: Multi-device sync
 - 🛡️ Privacy-first: All filtering happens locally
 
 ## Project Structure

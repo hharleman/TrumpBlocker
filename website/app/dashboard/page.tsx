@@ -109,7 +109,7 @@ export default async function DashboardPage() {
                   <Badge variant="secondary">Premium</Badge>
                 </CardTitle>
                 <CardDescription>
-                  Add your own custom keywords to block (up to 20)
+                  Add your own custom keywords to block (up to 100)
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -118,7 +118,7 @@ export default async function DashboardPage() {
                   disabled
                   className="min-h-[100px]"
                 />
-                <p className="text-sm text-gray-500 mt-2">0/20 keywords</p>
+                <p className="text-sm text-gray-500 mt-2">0/100 keywords</p>
               </CardContent>
             </Card>
 
@@ -159,15 +159,11 @@ export default async function DashboardPage() {
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-center gap-2">
                     <span className="text-green-600">✓</span>
-                    Up to 20 custom keywords
+                    Up to 100 custom keywords
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="text-green-600">✓</span>
                     2FA parental controls
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="text-green-600">✓</span>
-                    Multiple device sync
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="text-green-600">✓</span>
