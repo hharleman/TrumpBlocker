@@ -1,5 +1,4 @@
-// app/dashboard/page.tsx
-import { currentUser } from '@clerk/nextjs'
+import { currentUser } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
 import { UserButton } from '@clerk/nextjs'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card'
@@ -8,7 +7,7 @@ import { Badge } from '@/app/components/ui/badge'
 import { Switch } from '@/app/components/ui/switch'
 import { Label } from '@/app/components/ui/label'
 import { Textarea } from '@/app/components/ui/textarea'
-import { Chrome, Shield, Zap, Users, Settings, Download } from 'lucide-react'
+import { Chrome, Shield, Zap, Users, Download } from 'lucide-react'
 
 export default async function DashboardPage() {
   const user = await currentUser()
@@ -19,11 +18,10 @@ export default async function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
       <header className="bg-white border-b">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-3">
-            <div className="text-2xl">🚫</div>
+            <img src="/logo.png" alt="Trump Blocker Logo" className="h-8 w-8" />
             <h1 className="text-xl font-bold text-gray-900">Trump Blocker Dashboard</h1>
           </div>
           <div className="flex items-center space-x-4">
@@ -37,9 +35,7 @@ export default async function DashboardPage() {
 
       <main className="container mx-auto px-4 py-8">
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Left Column - Extension Settings */}
           <div className="lg:col-span-2 space-y-6">
-            {/* Extension Status */}
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -64,7 +60,6 @@ export default async function DashboardPage() {
               </CardContent>
             </Card>
 
-            {/* Blocking Categories */}
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -81,15 +76,15 @@ export default async function DashboardPage() {
                   <Switch id="trump" defaultChecked />
                 </div>
                 <div className="flex items-center justify-between">
-                  <Label htmlFor="vance">Vance Content</Label>
+                  <Label htmlFor="vance">JD Vance Content</Label>
                   <Switch id="vance" defaultChecked />
                 </div>
                 <div className="flex items-center justify-between">
-                  <Label htmlFor="rightwing">Right Wing Content</Label>
+                  <Label htmlFor="rightwing">Right Wing Influencers</Label>
                   <Switch id="rightwing" defaultChecked />
                 </div>
                 <div className="flex items-center justify-between">
-                  <Label htmlFor="redpill">Red Pill Content</Label>
+                  <Label htmlFor="redpill">Red Pill Influencers</Label>
                   <Switch id="redpill" defaultChecked />
                 </div>
                 <div className="flex items-center justify-between">
@@ -97,13 +92,12 @@ export default async function DashboardPage() {
                   <Switch id="foxnews" defaultChecked />
                 </div>
                 <div className="flex items-center justify-between">
-                  <Label htmlFor="redpillcontent">Red Pill Ideology</Label>
+                  <Label htmlFor="redpillcontent">Red Pill Content</Label>
                   <Switch id="redpillcontent" defaultChecked />
                 </div>
               </CardContent>
             </Card>
 
-            {/* Custom Keywords (Premium) */}
             <Card className="opacity-50">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -125,7 +119,6 @@ export default async function DashboardPage() {
               </CardContent>
             </Card>
 
-            {/* Parental Controls (Premium) */}
             <Card className="opacity-50">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -149,9 +142,7 @@ export default async function DashboardPage() {
             </Card>
           </div>
 
-          {/* Right Column - Upgrade & Stats */}
           <div className="space-y-6">
-            {/* Upgrade Card */}
             <Card className="border-yellow-200 bg-gradient-to-br from-yellow-50 to-orange-50">
               <CardHeader>
                 <CardTitle className="text-yellow-800">
@@ -176,4 +167,41 @@ export default async function DashboardPage() {
                     Multiple device sync
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-green-
+                    <span className="text-green-600">✓</span>
+                    Priority support
+                  </li>
+                </ul>
+                <Button className="w-full bg-yellow-600 hover:bg-yellow-700 text-white">
+                  Upgrade Now - $2/month
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Usage Statistics</CardTitle>
+                <CardDescription>
+                  Track your content blocking activity
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600">Content Blocked Today</span>
+                  <span className="font-bold text-2xl text-red-600">47</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600">Total Blocked This Week</span>
+                  <span className="font-bold text-lg text-gray-800">312</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600">Most Blocked Category</span>
+                  <span className="font-medium text-gray-800">Trump Content</span>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </main>
+    </div>
+  )
+}

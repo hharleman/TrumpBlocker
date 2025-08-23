@@ -1,9 +1,12 @@
-import { SignInButton, SignUpButton } from '@clerk/nextjs'
+import { SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
+import { currentUser } from '@clerk/nextjs/server'
+import { redirect } from 'next/navigation'
 import { Button } from '@/app/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card'
 import { Shield, Chrome, Zap, Users } from 'lucide-react'
 
-export default function HomePage() {
+export default async function HomePage() {
+  const user = await currentUser()
   return (
     <div className="min-h-screen gradient-bg">
       <header className="container mx-auto px-4 py-6 flex justify-between items-center">
@@ -11,17 +14,12 @@ export default function HomePage() {
           <img src="/logo.png" alt="Trump Blocker Logo" className="h-8 w-8" />
           <h1 className="text-2xl font-bold text-gray-800">Trump Blocker</h1>
         </div>
-        <div className="flex space-x-4">
-          <SignInButton mode="modal">
-            <Button variant="outline" className="bg-white border-gray-300 text-gray-800 hover:bg-gray-100">
-              Sign In
-            </Button>
-          </SignInButton>
-          <SignUpButton mode="modal">
+        <div className="flex items-center space-x-4">
+          <a href="/dashboard">
             <Button className="bg-red-600 text-white hover:bg-red-700">
-              Get Started
+              Go to Dashboard
             </Button>
-          </SignUpButton>
+          </a>
         </div>
       </header>
 
