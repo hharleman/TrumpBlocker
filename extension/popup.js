@@ -94,6 +94,7 @@ function updateUIForFreeUser() {
     premiumSection.style.display = 'block';
     customKeywordsSection.style.display = 'none';
     authSection.style.display = 'block';
+    chrome.storage.sync.set({ isPremium: false, customKeywords: '' });
 }
 
 function updateUIForPremiumStatus(isPremium) {
@@ -109,8 +110,9 @@ function updateUIForPremiumStatus(isPremium) {
         premiumSection.style.display = 'none';
         customKeywordsSection.style.display = 'block';
         authSection.style.display = 'none';
-        
+
         loadCustomKeywords();
+        chrome.storage.sync.set({ isPremium: true });
     } else {
         updateUIForFreeUser();
     }
@@ -162,10 +164,10 @@ function updateKeywordCount() {
     if (!textarea || !countDiv) return;
     
     const keywords = textarea.value.split(',').filter(k => k.trim().length > 0);
-    const count = Math.min(keywords.length, 20);
-    countDiv.textContent = `${count}/20 keywords`;
-    
-    if (keywords.length > 20) {
+    const count = Math.min(keywords.length, 100);
+    countDiv.textContent = `${count}/100 keywords`;
+
+    if (keywords.length > 100) {
         countDiv.style.color = '#ff6b6b';
     } else {
         countDiv.style.color = 'inherit';
@@ -236,8 +238,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             const keywords = customKeywordsTextarea.value;
             const keywordList = keywords.split(',').filter(k => k.trim().length > 0);
             
-            if (keywordList.length > 20) {
-                const limitedKeywords = keywordList.slice(0, 20).join(', ');
+            if (keywordList.length > 100) {
+                const limitedKeywords = keywordList.slice(0, 100).join(', ');
                 customKeywordsTextarea.value = limitedKeywords;
                 updateKeywordCount();
             }

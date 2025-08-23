@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { currentUser } from '@clerk/nextjs/server'
+import { headers } from 'next/headers'
 import Stripe from 'stripe'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
@@ -34,10 +35,13 @@ export async function POST(req: NextRequest) {
     const customer = customers.data[0]
     console.log('Customer ID:', customer.id)
 
+    // Use headers to get origin like main branch does
+    const origin = headers().get('origin') || 'http://localhost:3000'
+    
     // Create a portal session
     const portalSession = await stripe.billingPortal.sessions.create({
       customer: customer.id,
-      return_url: `${process.env.NEXT_PUBLIC_APP_URL}/dashboard`,
+      return_url: `${origin}/dashboard`,
     })
 
     console.log('Portal session created:', portalSession.url)

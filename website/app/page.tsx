@@ -1,6 +1,6 @@
-import { SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
+import { SignInButton, SignUpButton } from '@clerk/nextjs'
 import { currentUser } from '@clerk/nextjs/server'
-import { redirect } from 'next/navigation'
+import Link from 'next/link'
 import { Button } from '@/app/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card'
 import { Shield, Chrome, Zap, Users } from 'lucide-react'
@@ -15,11 +15,19 @@ export default async function HomePage() {
           <h1 className="text-2xl font-bold text-gray-800">Trump Blocker</h1>
         </div>
         <div className="flex items-center space-x-4">
-          <a href="/dashboard">
-            <Button className="bg-red-600 text-white hover:bg-red-700">
-              Go to Dashboard
-            </Button>
-          </a>
+          {user ? (
+            <Link href="/dashboard">
+              <Button className="bg-red-600 text-white hover:bg-red-700">
+                Go to Dashboard
+              </Button>
+            </Link>
+          ) : (
+            <SignInButton mode="modal" redirectUrl="/dashboard">
+              <Button className="bg-red-600 text-white hover:bg-red-700">
+                Go to Dashboard
+              </Button>
+            </SignInButton>
+          )}
         </div>
       </header>
 
@@ -34,23 +42,23 @@ export default async function HomePage() {
           
           <div className="flex flex-wrap justify-center gap-4 mb-8 max-w-3xl mx-auto">
             <div className="flex items-center bg-white/70 rounded-full px-4 py-2 text-gray-800">
-              <span className="mr-2">🛑</span>
+              <span className="mr-2">🚫</span>
               Donald Trump
             </div>
             <div className="flex items-center bg-white/70 rounded-full px-4 py-2 text-gray-800">
-              <span className="mr-2">🛑</span>
+              <span className="mr-2">🚫</span>
               JD Vance
             </div>
             <div className="flex items-center bg-white/70 rounded-full px-4 py-2 text-gray-800">
-              <span className="mr-2">🛑</span>
+              <span className="mr-2">🚫</span>
               Fox News
             </div>
             <div className="flex items-center bg-white/70 rounded-full px-4 py-2 text-gray-800">
-              <span className="mr-2">🛑</span>
+              <span className="mr-2">🚫</span>
               Far Right Influencers
             </div>
             <div className="flex items-center bg-white/70 rounded-full px-4 py-2 text-gray-800">
-              <span className="mr-2">🛑</span>
+              <span className="mr-2">🚫</span>
               Red Pill Content
             </div>
           </div>
@@ -123,7 +131,7 @@ export default async function HomePage() {
               <Zap className="h-12 w-12 mb-4 text-gray-800" />
               <CardTitle>Custom Keywords</CardTitle>
               <CardDescription className="text-gray-600">
-                Premium users can add up to 20 custom keywords for personalized filtering
+                Premium users can add up to 100 custom keywords for personalized filtering
               </CardDescription>
             </CardHeader>
           </Card>
@@ -197,15 +205,11 @@ export default async function HomePage() {
                   </li>
                   <li className="flex items-center">
                     <span className="mr-2">✓</span>
-                    Up to 20 custom keywords
+                    Up to 100 custom keywords
                   </li>
                   <li className="flex items-center">
                     <span className="mr-2">✓</span>
                     2FA parental controls
-                  </li>
-                  <li className="flex items-center">
-                    <span className="mr-2">✓</span>
-                    Multiple device management
                   </li>
                   <li className="flex items-center">
                     <span className="mr-2">✓</span>
