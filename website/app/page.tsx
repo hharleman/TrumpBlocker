@@ -1,6 +1,6 @@
-import { SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
+import { SignInButton, SignUpButton } from '@clerk/nextjs'
 import { currentUser } from '@clerk/nextjs/server'
-import { redirect } from 'next/navigation'
+import Link from 'next/link'
 import { Button } from '@/app/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card'
 import { Shield, Chrome, Zap, Users } from 'lucide-react'
@@ -15,11 +15,19 @@ export default async function HomePage() {
           <h1 className="text-2xl font-bold text-gray-800">Trump Blocker</h1>
         </div>
         <div className="flex items-center space-x-4">
-          <a href="/dashboard">
-            <Button className="bg-red-600 text-white hover:bg-red-700">
-              Go to Dashboard
-            </Button>
-          </a>
+          {user ? (
+            <Link href="/dashboard">
+              <Button className="bg-red-600 text-white hover:bg-red-700">
+                Go to Dashboard
+              </Button>
+            </Link>
+          ) : (
+            <SignInButton mode="modal" redirectUrl="/dashboard">
+              <Button className="bg-red-600 text-white hover:bg-red-700">
+                Go to Dashboard
+              </Button>
+            </SignInButton>
+          )}
         </div>
       </header>
 
