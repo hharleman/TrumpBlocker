@@ -38,7 +38,8 @@
             foxnews: true,
             redpillcontent: true
         },
-        customKeywords: ''
+        customKeywords: '',
+        isPremium: false
     };
 
     let blockedCount = 0;
@@ -47,6 +48,9 @@
         try {
             const stored = await chrome.storage.sync.get(settings);
             settings = { ...settings, ...stored };
+            if (!settings.isPremium) {
+                settings.customKeywords = '';
+            }
         } catch (error) {
             console.log('Trump Blocker: Could not load settings:', error);
         }

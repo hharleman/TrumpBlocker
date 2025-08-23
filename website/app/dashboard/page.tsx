@@ -8,6 +8,7 @@ import { Switch } from '@/app/components/ui/switch'
 import { Label } from '@/app/components/ui/label'
 import { Textarea } from '@/app/components/ui/textarea'
 import { Chrome, Shield, Zap, Users, Download } from 'lucide-react'
+import BillingSection from '@/app/components/billing-section'
 
 export default async function DashboardPage() {
   const user = await currentUser()
@@ -15,6 +16,8 @@ export default async function DashboardPage() {
   if (!user) {
     redirect('/sign-in')
   }
+
+  const isPremium = user.publicMetadata?.isPremium === true
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -26,7 +29,7 @@ export default async function DashboardPage() {
           </div>
           <div className="flex items-center space-x-4">
             <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
-              Free Plan
+              {isPremium ? 'Premium Plan' : 'Free Plan'}
             </Badge>
             <UserButton afterSignOutUrl="/" />
           </div>
@@ -201,6 +204,7 @@ export default async function DashboardPage() {
             </Card>
           </div>
         </div>
+        <BillingSection isPremium={isPremium} />
       </main>
     </div>
   )
