@@ -94,6 +94,7 @@ function updateUIForFreeUser() {
     premiumSection.style.display = 'block';
     customKeywordsSection.style.display = 'none';
     authSection.style.display = 'block';
+    chrome.storage.sync.set({ isPremium: false, customKeywords: '' });
 }
 
 function updateUIForPremiumStatus(isPremium) {
@@ -109,8 +110,9 @@ function updateUIForPremiumStatus(isPremium) {
         premiumSection.style.display = 'none';
         customKeywordsSection.style.display = 'block';
         authSection.style.display = 'none';
-        
+
         loadCustomKeywords();
+        chrome.storage.sync.set({ isPremium: true });
     } else {
         updateUIForFreeUser();
     }
