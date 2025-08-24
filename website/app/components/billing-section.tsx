@@ -90,7 +90,14 @@ export default function BillingSection({ isPremium }: BillingSectionProps) {
               </Button>
             </>
           ) : (
-            <Button onClick={handleSubscribe}>Upgrade to Premium - $2/month</Button>
+            <div className="flex flex-col gap-2">
+              <a href="https://buy.stripe.com/test_7sYaEWePM80j7wv0jG7IY00" target="_blank" rel="noopener noreferrer">
+                <Button className="w-full">Monthly Plan - $2/month</Button>
+              </a>
+              <a href="https://buy.stripe.com/test_14A7sK6jg5Sb4kjgiE7IY01" target="_blank" rel="noopener noreferrer">
+                <Button className="w-full" variant="outline">Annual Plan - $20/year (Save $4!)</Button>
+              </a>
+            </div>
           )}
         </CardContent>
       </Card>

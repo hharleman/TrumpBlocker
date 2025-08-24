@@ -77,15 +77,31 @@ export default async function HomePage() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-            <SignUpButton mode="modal">
-              <Button size="lg" className="bg-red-600 text-white hover:bg-red-700 text-lg px-8 py-4">
-                Get Started Free
-              </Button>
-            </SignUpButton>
-            <a href="https://chrome.google.com/webstore" target="_blank" rel="noopener noreferrer">
+            {user ? (
+              <Link href="/dashboard">
+                <Button size="lg" className="bg-red-600 text-white hover:bg-red-700 text-lg px-8 py-4">
+                  Get Started Free
+                </Button>
+              </Link>
+            ) : (
+              <SignUpButton mode="modal" redirectUrl="/dashboard">
+                <Button size="lg" className="bg-red-600 text-white hover:bg-red-700 text-lg px-8 py-4">
+                  Get Started Free
+                </Button>
+              </SignUpButton>
+            )}
+            <a href="https://chromewebstore.google.com/detail/docsafterdark/pihphjfnfjmdbhakhjifipfdgbpenobg?hl=en-US&utm_source=ext_sidebar" target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="bg-blue-800 text-white hover:bg-blue-900 text-lg px-8 py-4">
                 <Chrome className="mr-2 h-5 w-5" />
-                Download Extension
+                Download Chrome Extension
+              </Button>
+            </a>
+            <a href="https://microsoftedge.microsoft.com/addons/detail/zotero-connector/nmhdhpibnnopknkmonacoephklnflpho?hl=en-US" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="bg-blue-800 text-white hover:bg-blue-900 text-lg px-8 py-4">
+                <svg className="mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.73 0 3.36-.44 4.78-1.22-.15-.08-.3-.18-.43-.29l-2.08-1.74c-.64.22-1.33.35-2.05.35-2.76 0-5.1-2.04-5.1-4.5s2.34-4.5 5.1-4.5c1.4 0 2.67.56 3.6 1.46L17.5 9.5c-.01-.17-.04-.33-.07-.5-.36-2.36-2.38-4.17-4.93-4.17-.55 0-1.07.09-1.57.24C9.07 3.24 7.12 2 4.86 2 2.18 2 0 4.18 0 6.86c0 1.81 1 3.4 2.5 4.25.46 2.34 2.21 4.26 4.5 5.14v-2.12c-1.45-.65-2.5-2.08-2.5-3.77 0-2.21 1.79-4 4-4s4 1.79 4 4c0 .69-.19 1.33-.5 1.89l1.75 1.46c.47-.82.75-1.78.75-2.82 0-3.31-2.69-6-6-6z"/>
+                </svg>
+                Download Edge Extension
               </Button>
             </a>
           </div>
@@ -139,9 +155,9 @@ export default async function HomePage() {
           <Card className="card-gradient text-gray-800 border-gray-200">
             <CardHeader>
               <Users className="h-12 w-12 mb-4 text-gray-800" />
-              <CardTitle>Parental Controls</CardTitle>
+              <CardTitle>PIN-Protected Controls</CardTitle>
               <CardDescription className="text-gray-600">
-                2FA protection prevents children from disabling the extension
+                PIN-protected parental controls prevent unauthorized changes to settings
               </CardDescription>
             </CardHeader>
           </Card>
@@ -150,7 +166,7 @@ export default async function HomePage() {
         {/* Pricing Section */}
         <div className="text-center mb-16">
           <h3 className="text-3xl font-bold text-gray-800 mb-8">Simple Pricing</h3>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Free Plan */}
             <Card className="card-gradient text-gray-800 border-gray-200">
               <CardHeader>
@@ -175,21 +191,26 @@ export default async function HomePage() {
                     Email filtering support
                   </li>
                 </ul>
-                <SignUpButton mode="modal">
-                  <Button className="w-full mt-6 bg-red-600 text-white hover:bg-red-700">
-                    Get Started Free
-                  </Button>
-                </SignUpButton>
+                {user ? (
+                  <Link href="/dashboard">
+                    <Button className="w-full mt-6 bg-red-600 text-white hover:bg-red-700">
+                      Get Started Free
+                    </Button>
+                  </Link>
+                ) : (
+                  <SignUpButton mode="modal" redirectUrl="/dashboard">
+                    <Button className="w-full mt-6 bg-red-600 text-white hover:bg-red-700">
+                      Get Started Free
+                    </Button>
+                  </SignUpButton>
+                )}
               </CardContent>
             </Card>
 
-            {/* Premium Plan */}
-            <Card className="card-gradient text-gray-800 border-gray-200 ring-2 ring-yellow-400">
+            {/* Premium Monthly Plan */}
+            <Card className="card-gradient text-gray-800 border-gray-200">
               <CardHeader>
-                <CardTitle className="text-2xl flex items-center">
-                  Premium 
-                  <span className="ml-2 text-yellow-400">⭐</span>
-                </CardTitle>
+                <CardTitle className="text-2xl">Premium Monthly</CardTitle>
                 <CardDescription className="text-gray-600">
                   Advanced features for power users
                 </CardDescription>
@@ -209,18 +230,87 @@ export default async function HomePage() {
                   </li>
                   <li className="flex items-center">
                     <span className="mr-2">✓</span>
-                    2FA parental controls
+                    PIN-protected parental controls
                   </li>
                   <li className="flex items-center">
                     <span className="mr-2">✓</span>
                     Priority support
                   </li>
                 </ul>
-                <SignUpButton mode="modal">
-                  <Button className="w-full mt-6 bg-red-600 text-white hover:bg-red-700">
-                    Start Premium Trial
-                  </Button>
-                </SignUpButton>
+                {user ? (
+                  <Link href="/dashboard">
+                    <Button className="w-full mt-6 bg-red-600 text-white hover:bg-red-700">
+                      Start Premium Monthly
+                    </Button>
+                  </Link>
+                ) : (
+                  <SignUpButton mode="modal" redirectUrl="/dashboard">
+                    <Button className="w-full mt-6 bg-red-600 text-white hover:bg-red-700">
+                      Start Premium Monthly
+                    </Button>
+                  </SignUpButton>
+                )}
+              </CardContent>
+            </Card>
+
+            {/* Premium Annual Plan - Most Popular */}
+            <Card className="card-gradient text-gray-800 border-blue-800 ring-4 ring-blue-800 relative transform scale-105">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <div className="bg-blue-800 text-white px-4 py-2 rounded-full text-sm font-bold">
+                  🏆 BEST VALUE
+                </div>
+              </div>
+              <CardHeader className="pt-8">
+                <CardTitle className="text-2xl flex items-center justify-center">
+                  Premium Annual
+                  <span className="ml-2 text-blue-800">⭐</span>
+                </CardTitle>
+                <CardDescription className="text-gray-600">
+                  Save $4 with annual billing
+                </CardDescription>
+                <div className="text-4xl font-bold mt-4 text-blue-800">
+                  $20<span className="text-lg">/year</span>
+                </div>
+                <div className="text-sm text-gray-500">
+                  Just $1.67/month - Save 17%!
+                </div>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3 text-left">
+                  <li className="flex items-center">
+                    <span className="mr-2">✓</span>
+                    Everything in Free
+                  </li>
+                  <li className="flex items-center">
+                    <span className="mr-2">✓</span>
+                    Up to 100 custom keywords
+                  </li>
+                  <li className="flex items-center">
+                    <span className="mr-2">✓</span>
+                    PIN-protected parental controls
+                  </li>
+                  <li className="flex items-center">
+                    <span className="mr-2">✓</span>
+                    Priority support
+                  </li>
+                  <li className="flex items-center font-bold text-blue-800">
+                    <span className="mr-2">🎯</span>
+                    Best value - Save $4/year!
+                  </li>
+                </ul>
+                {user ? (
+                  <Link href="/dashboard">
+                    <Button className="w-full mt-6 bg-blue-800 text-white hover:bg-blue-900">
+                      Start Premium Annual
+                    </Button>
+                  </Link>
+                ) : (
+                  <SignUpButton mode="modal" redirectUrl="/dashboard">
+                    <Button className="w-full mt-6 bg-blue-800 text-white hover:bg-blue-900">
+                      Start Premium Annual
+                    </Button>
+                  </SignUpButton>
+                )}
               </CardContent>
             </Card>
           </div>
