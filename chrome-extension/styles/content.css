@@ -42,6 +42,11 @@
     display: none !important;
 }
 
+/* YouTube SPA filtering */
+[data-filtered] {
+    display: none !important;
+}
+
 @keyframes trump-blocker-fade-in {
     from {
         opacity: 0;

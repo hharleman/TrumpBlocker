@@ -1,7 +1,5 @@
 // Background script for Trump Blocker extension
 chrome.runtime.onInstalled.addListener(() => {
-    console.log('Trump Blocker extension installed');
-    
     // Set default settings
     const defaultSettings = {
         categories: {

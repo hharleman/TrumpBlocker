@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Trump Blocker",
   "version": "1.0.0",
-  "description": "Block unwanted political content across the web",
+  "description": "Remove Trump and other political content from your internet for peace of mind",
   "permissions": [
     "storage",
     "activeTab",
@@ -18,7 +18,7 @@
       "matches": ["<all_urls>"],
       "js": ["content.js"],
       "css": ["styles/content.css"],
-      "run_at": "document_start"
+      "run_at": "document_end"
     }
   ],
   "background": {

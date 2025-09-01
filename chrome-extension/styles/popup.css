@@ -1,0 +1,327 @@
+/* Trump Blocker Chrome Extension Popup Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@400;500;600;700;800;900&family=Gabarito:wght@400;600&display=swap');
+
+body {
+    width: 380px;
+    min-height: 600px;
+    font-family: 'Gabarito', sans-serif;
+    background: #F8F3E5;
+    color: #1F2937;
+    line-height: 1.5;
+}
+
+.popup-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Header */
+.popup-header {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+}
+
+.logo h1 {
+    font-family: 'Recursive', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1F2937;
+    margin: 0;
+}
+
+/* Main Content */
+.popup-main {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Description */
+.description {
+    margin-bottom: 20px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.description p {
+    font-size: 14px;
+    color: #374151;
+    margin: 0;
+}
+
+/* Categories Section */
+.categories-section {
+    margin-bottom: 20px;
+}
+
+.categories-section h2 {
+    font-family: 'Recursive', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1F2937;
+    margin: 0 0 12px 0;
+    padding: 12px 8px 0 8px;
+}
+
+.category-list {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.category-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 8px;
+}
+
+.category-item.premium-locked {
+    opacity: 0.6;
+}
+
+.category-item label {
+    font-size: 14px;
+    font-weight: 400;
+    color: #1F2937;
+    cursor: pointer;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    background: #E5E7EB;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-switch.active {
+    background: #DC2626;
+}
+
+.toggle-switch.locked {
+    cursor: not-allowed;
+    opacity: 0.5;
+    background: #E5E7EB !important;
+}
+
+.toggle-switch.locked .toggle-slider {
+    transform: translateX(0px) !important;
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-switch.active .toggle-slider {
+    transform: translateX(20px);
+}
+
+.lock-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    color: #6B7280;
+}
+
+/* Premium Upgrade Inline */
+.premium-upgrade-inline {
+    text-align: center;
+    padding: 8px 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.premium-link {
+    color: #DC2626;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 400;
+    transition: color 0.2s ease;
+}
+
+.premium-link:hover {
+    color: #B91C1C;
+    text-decoration: underline;
+}
+
+/* Auth Section */
+.auth-section {
+    margin-bottom: 20px;
+}
+
+.login-button {
+    width: 100%;
+    background: #DC2626;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.login-button:hover {
+    background: #B91C1C;
+}
+
+/* PIN Section */
+.pin-section {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.pin-section h3 {
+    font-family: 'Recursive', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1F2937;
+    margin: 0 0 8px 0;
+}
+
+.pin-description {
+    font-size: 13px;
+    color: #6B7280;
+    margin: 0 0 12px 0;
+    line-height: 1.4;
+}
+
+.pin-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pin-toggle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pin-toggle-row label {
+    font-size: 14px;
+    font-weight: 400;
+    color: #1F2937;
+}
+
+.pin-input-section {
+    margin-top: 12px;
+}
+
+.pin-label {
+    font-size: 12px;
+    font-weight: 400;
+    color: #6B7280;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.pin-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    font-family: monospace;
+    transition: border-color 0.2s ease;
+}
+
+.pin-input:focus {
+    outline: none;
+    border-color: #DC2626;
+    background: white;
+}
+
+.pin-input::placeholder {
+    color: #9CA3AF;
+    letter-spacing: 0.1em;
+}
+
+
+/* Footer */
+.popup-footer {
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.website-link {
+    color: #DC2626;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 400;
+    transition: color 0.2s ease;
+}
+
+.website-link:hover {
+    color: #B91C1C;
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-height: 600px) {
+    .popup-main {
+        padding: 16px;
+    }
+    
+    .category-item {
+        padding: 8px;
+    }
+    
+    .pin-section {
+        padding: 12px;
+    }
+}
