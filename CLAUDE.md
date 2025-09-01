@@ -17,7 +17,7 @@ Trump Blocker is a Chrome extension with a companion Next.js website for managin
 - `npm run lint` - Run ESLint
 
 ### Extension Development
-- Load unpacked extension: Chrome → Extensions → Developer mode → Load unpacked → select `extension` folder
+- Load unpacked extension: Chrome → Extensions → Developer mode → Load unpacked → select `chrome-extension` folder
 - No build step required - extension runs directly from source files
 
 ## Architecture

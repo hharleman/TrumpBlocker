@@ -109,44 +109,11 @@ export default function DashboardContent({ isPremium, stats }: DashboardContentP
 
           <div className="space-y-6">
             {!isPremium ? (
-              <Card className="border-yellow-200 bg-gradient-to-br from-yellow-50 to-orange-50">
-                <CardHeader>
-                  <CardTitle className="text-yellow-800">
-                    🌟 Upgrade to Premium
-                  </CardTitle>
-                  <CardDescription className="text-yellow-700">
-                    Unlock advanced features for better control
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <ul className="space-y-2 text-sm">
-                    <li className="flex items-center gap-2">
-                      <span className="text-green-600">✓</span>
-                      Up to 100 custom keywords
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-green-600">✓</span>
-                      PIN protected controls
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-green-600">✓</span>
-                      Priority support
-                    </li>
-                  </ul>
-                  <div className="flex flex-col gap-2">
-                    <a href="https://buy.stripe.com/test_7sYaEWePM80j7wv0jG7IY00" target="_blank" rel="noopener noreferrer">
-                      <Button className="w-full bg-yellow-600 hover:bg-yellow-700 text-white">
-                        Monthly - $2/month
-                      </Button>
-                    </a>
-                    <a href="https://buy.stripe.com/test_14A7sK6jg5Sb4kjgiE7IY01" target="_blank" rel="noopener noreferrer">
-                      <Button className="w-full bg-yellow-600 hover:bg-yellow-700 text-white">
-                        Annual - $20/year (Save $4!)
-                      </Button>
-                    </a>
-                  </div>
-                </CardContent>
-              </Card>
+              <div className="text-center">
+                <a href="/dashboard" className="text-red-600 text-xs hover:text-red-700 hover:underline">
+                  Block more content with $2 Premium
+                </a>
+              </div>
             ) : (
               <Card className="border-green-200 bg-gradient-to-br from-green-50 to-emerald-50">
                 <CardHeader>
@@ -160,28 +127,6 @@ export default function DashboardContent({ isPremium, stats }: DashboardContentP
               </Card>
             )}
 
-            {/* Add upgrade prompt above Usage Statistics for free users */}
-            {!isPremium && (
-              <Card className="border-yellow-200 bg-gradient-to-br from-yellow-50 to-orange-50">
-                <CardHeader>
-                  <CardTitle className="text-yellow-800">
-                    🚀 Upgrade to Premium Today!
-                  </CardTitle>
-                  <CardDescription className="text-yellow-700">
-                    Get unlimited custom keywords and PIN protection
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-col gap-2">
-                    <a href="https://buy.stripe.com/test_7sYaEWePM80j7wv0jG7IY00" target="_blank" rel="noopener noreferrer">
-                      <Button className="w-full bg-yellow-600 hover:bg-yellow-700 text-white">
-                        Start Premium - $2/month
-                      </Button>
-                    </a>
-                  </div>
-                </CardContent>
-              </Card>
-            )}
 
             <Card>
               <CardHeader>
